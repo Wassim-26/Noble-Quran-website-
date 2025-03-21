@@ -1,7 +1,44 @@
+.audio-parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .audio-parent {
-  padding: 32px;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(48, auto);
-  grid-gap: 16px;
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+  padding: 34px;
+  align-items: center;
+}
+
+.audio-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: #282828c4;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.surate {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  min-width: 120px;
+  text-align: center;
+}
+
+.audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 8px;
+}
+.surate {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
