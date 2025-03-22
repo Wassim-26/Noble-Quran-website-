@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import "./Hero.css";
-import quranLight from "./quran.png";
-import quranDark from "./quranb.png";
-import icon from "./icon.png";
-import loader from "./loader.gif";
+import quranLight from "../../img/quranGreen.png";
+import quranDark from "../../img/quranblue.png";
+import icon from "../../img/icon.png";
+import loader from "../../img/loader2.gif";
 import { useStore } from "../../lib/store";
 export default function Hero() {
   const [surah, setsurah] = useState([]);
@@ -23,8 +23,8 @@ export default function Hero() {
   }, []);
   if (loading)
     return (
-      <div className="loader">
-        <img src={loader} alt="loader" width={186} height={186} />
+      <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
+        <img src={loader} alt="loader" />
       </div>
     );
   return (

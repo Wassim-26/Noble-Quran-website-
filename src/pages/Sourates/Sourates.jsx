@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./Sourates.css";
 import { useParams } from "react-router";
-import star from "./islam-star.png";
-import loader from "./loader.gif";
+import star from "../../img/islam-star.png";
+import loader from "../../img/loader2.gif";
 import { useStore } from "../../lib/store";
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -35,7 +35,7 @@ export default function Sourates() {
 
   if (LoadingSurah || LoadingEdition)
     return (
-      <div className="loader">
+      <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
         <img src={loader} alt="loader" width={186} height={186} />
       </div>
     );

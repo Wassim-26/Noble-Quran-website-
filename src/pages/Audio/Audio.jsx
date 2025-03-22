@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useStore } from "../../lib/store";
 import Navbar from "../../components/Navbar/Navbar";
+import loader from "../../img/loader2.gif";
 export default function Audio() {
   const [surahs, setsurahs] = useState([]);
   const [loading, setloading] = useState(true);
@@ -17,7 +18,12 @@ export default function Audio() {
         setloading(false);
       });
   }, []);
-  if (loading) return <div className="loader">loading...</div>;
+  if (loading)
+    return (
+      <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
+        <img src={loader} alt="loader" />
+      </div>
+    );
   return (
     <div className={` ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />

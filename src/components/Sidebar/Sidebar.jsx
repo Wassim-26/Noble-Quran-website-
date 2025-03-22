@@ -26,16 +26,16 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box
       sx={{
-        width: 250,
+        width: 260,
         height: "100vh",
         padding: "16px",
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
-      className={`${darkMode ? "dark-mode" : "light-mode"}`}
       onChange={(event) => {
         setCurrentEdition(event.target.value);
       }}
+      style={{ backgroundColor: darkMode ? "#0D0059" : "#1E745E" }}
     >
       <List>
         {[

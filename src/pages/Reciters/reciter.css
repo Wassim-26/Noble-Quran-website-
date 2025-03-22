@@ -34,10 +34,11 @@
   border: 2px solid black;
   text-align: center;
 }
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
 .reciter-container .reciter-card h2 {
-  font-family: sans-serif;
-  font-weight: 510;
   color: #282828;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
 }
 .reciter-container .reciter-card:hover h2 {
   color: #f1f1f1;

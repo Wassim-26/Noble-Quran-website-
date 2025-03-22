@@ -4,7 +4,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useStore } from "../../lib/store";
-import icon from "./quran_icon.png";
+import icon from "../../img/quran_icon.png";
+import loader from "../../img/loader2.gif";
 export default function Reciter() {
   const [reciters, setreciter] = useState([]);
   const [loading, setloading] = useState(true);
@@ -18,7 +19,12 @@ export default function Reciter() {
         setloading(false);
       });
   }, []);
-  if (loading) return <div className="loader">loading...</div>;
+  if (loading)
+    return (
+      <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
+        <img src={loader} alt="loader" />
+      </div>
+    );
   return (
     <div className={` ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />

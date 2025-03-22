@@ -2,8 +2,8 @@ import React from "react";
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useStore } from "../../lib/store";
-import insta from "./insta.jpg";
-import telegram from "./telegram.jpg";
+import insta from "../../img/insta.jpg";
+import telegram from "../../img/telegram.jpg";
 export default function About() {
   const darkMode = useStore((state) => state.darkMode);
   return (
@@ -15,9 +15,9 @@ export default function About() {
             <h1>About Me</h1>
             <p>
               Hey I'm Wassim Abderrahmane Hamitouche a Medical student with a
-              deep passion for knowledge (especially the new technologies) and
-              sharing valuable information.So I decided to learn and create My
-              first website.My aim is to make it easy for everyone to read,
+              deep passion for knowledge (especially in the new technologies)
+              and sharing valuable information.So I decided to learn and create
+              My first website.My aim is to make it easy for everyone to read,
               study, listen ,and learn The Noble Quran.
             </p>
           </div>
@@ -25,10 +25,22 @@ export default function About() {
             <h1> Contact Me </h1>
             <div className="img-container">
               <p>
-                <img src={telegram} alt="telegrame" width={72} height={72} />
+                <img
+                  src={telegram}
+                  alt="telegrame"
+                  width={72}
+                  height={72}
+                  style={{ borderRadius: "6px", border: "3px solid red" }}
+                />
               </p>
               <p>
-                <img src={insta} alt="insta" width={72} height={72} />
+                <img
+                  src={insta}
+                  alt="insta"
+                  width={72}
+                  height={72}
+                  style={{ borderRadius: "6px", border: "3px solid red" }}
+                />
               </p>
             </div>
           </div>
