@@ -37,7 +37,6 @@ export default function TemporaryDrawer() {
         setCurrentEdition(event.target.value);
       }}
     >
-      <Divider />
       <List>
         {[
           { text: "Home", icon: <HomeIcon />, path: "/" },

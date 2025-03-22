@@ -9,19 +9,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   margin: 48px 0;
 }
 .reciter-container > .reciter-header-title > h1 {
   margin: 0 12px;
   font-size: 42px;
 }
+.reciter-container > .reciter-header-title > img {
+  width: 52px;
+  height: 52px;
+}
 .reciter-container .reciter-cards-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(1, auto);
   gap: 12px;
-  padding: 18px 0;
+  padding: 0 32px;
 }
 .reciter-container .reciter-card {
   background-color: #f1f1f134;
@@ -39,4 +42,35 @@
 .reciter-container .reciter-card:hover h2 {
   color: #f1f1f1;
   transition: 0.1;
+}
+@media screen and (max-width: 768px) {
+  .reciter-container .reciter-cards-container {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+@media screen and (max-width: 480px) {
+  .reciter-container .reciter-cards-container {
+    grid-template-columns: repeat(1, auto);
+  }
+  .reciter-container > .reciter-header-title {
+    padding: 0 22px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .reciter-container > .reciter-header-title > h1 {
+    font-size: 34px;
+  }
+  .reciter-container > .reciter-header-title > img {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .reciter-container > .reciter-header-title > h1 {
+    font-size: 30px;
+  }
+  .reciter-container > .reciter-header-title > img {
+    width: 38px;
+    height: 38px;
+  }
 }

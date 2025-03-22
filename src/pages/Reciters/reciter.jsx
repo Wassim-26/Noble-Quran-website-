@@ -24,9 +24,9 @@ export default function Reciter() {
       <Navbar />
       <div className="reciter-container">
         <div className="reciter-header-title">
-          <img src={icon} alt="" width={52} height={52} />
+          <img src={icon} alt="" />
           <h1> Quran Reciters</h1>
-          <img src={icon} alt="" width={52} height={52} />
+          <img src={icon} alt="" />
         </div>
         <div className="reciter-cards-container">
           {reciters.map((reciter) => (

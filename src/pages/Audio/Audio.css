@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 16px;
-  padding: 34px;
+  padding: 34px 74px;
   align-items: center;
 }
 
@@ -41,4 +41,27 @@
 .surate {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+@media screen and (max-width: 1024px) {
+  .audio-parent {
+    grid-template-columns: 1fr;
+    padding: 16px 32px;
+  }
+}
+@media screen and (max-width: 468px) {
+  audio {
+    width: 200px;
+    height: 32px;
+  }
+  .audio-parent {
+    padding: 26px 36px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .audio-parent {
+    padding: 26 76px;
+  }
+  audio {
+    width: 180px;
+  }
 }
