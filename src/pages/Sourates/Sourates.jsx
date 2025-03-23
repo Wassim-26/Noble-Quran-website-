@@ -16,6 +16,8 @@ export default function Sourates() {
   const darkMode = useStore((state) => state.darkMode);
 
   useEffect(() => {
+    if (!params.numberSourat) return;
+
     fetch(
       `https://api.alquran.cloud/v1/surah/${params.numberSourat}/${CurrentEdition}`
     )
@@ -23,8 +25,7 @@ export default function Sourates() {
       .then((data) => {
         setsurah(data.data);
         setLoadingsurah(false);
-      }),
-      [params.numberSourat];
+      });
 
     fetch("https://api.alquran.cloud/v1/edition")
       .then((response) => response.json())
@@ -32,7 +33,7 @@ export default function Sourates() {
         setEdition(data.data);
         setLoadingEdition(false);
       });
-  }, [CurrentEdition]);
+  }, [params.numberSourat, CurrentEdition]);
 
   if (LoadingSurah || LoadingEdition)
     return (
@@ -40,12 +41,13 @@ export default function Sourates() {
         <img src={loader} alt="loader" width={186} height={186} />
       </div>
     );
+
   return (
     <div className={`sourates ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />
       <div className="star-text-container">
         <img alt="star" src={star} width={52} height={52} />
-        <h1> {surah.name} </h1>
+        <h1> {surah?.name} </h1>
         <img alt="star" src={star} width={52} height={52} />
       </div>
       <div className="select-ayat-container">
@@ -68,11 +70,11 @@ export default function Sourates() {
         <section id="container-of-ayats">
           <div className="ayat-box-container">
             {surah?.ayahs?.map((aya) => (
-              <div className="aya">
+              <div className="aya" key={aya.numberInSurah}>
                 <img
                   className="ayat-png"
                   src={`https://cdn.islamic.network/quran/images/high-resolution/${surah.number}_${aya.numberInSurah}.png`}
-                  alt="ayat"
+                  alt={`Ayat ${aya.numberInSurah}`}
                 />
                 <audio controls>
                   <source
