@@ -37,7 +37,7 @@ export default function FeedBack() {
             style={{
               color: darkMode ? "#FFFFFF" : "#3333FF",
             }}
-            href="https://t.me/holyquran002025"
+            href="https://t.me/Hidalgo_26"
           >
             {" "}
             Click here
