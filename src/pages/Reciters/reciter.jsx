@@ -1,5 +1,5 @@
 import React from "react";
-import "./Reciter.css";
+import "./reciter.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
