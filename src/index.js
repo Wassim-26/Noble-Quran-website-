@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home/Home";
 import Sourates from "./pages/Sourates/Sourates";
-import Reciter from "./pages/Reciters/Reciter.jsx";
+import Reciter from "./pages/reciters/Reciter";
 import Audio from "./pages/Audio/Audio";
 import About from "./pages/About/About";
 import FeedBack from "./pages/FeedBack/FeedBack";
