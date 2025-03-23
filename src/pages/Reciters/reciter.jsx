@@ -16,6 +16,11 @@ export default function Reciter() {
       .then((response) => response.json())
       .then((data) => {
         setreciter(data.data);
+        const indices = [0, 1, 6];
+        const filteredReciters = data.data.filter((_, index) =>
+          indices.includes(index)
+        );
+        setreciter(filteredReciters);
         setloading(false);
       });
   }, []);

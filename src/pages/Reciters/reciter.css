@@ -1,8 +1,8 @@
 .reciter-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 .reciter-container > .reciter-header-title {
   display: flex;
@@ -24,12 +24,12 @@
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(1, auto);
   gap: 12px;
-  padding: 0 32px;
+  padding: 0 12px;
 }
 .reciter-container .reciter-card {
   background-color: #f1f1f134;
   border-radius: 6px;
-  padding: 6px;
+  padding: 6px 22px;
   cursor: pointer;
   border: 2px solid black;
   text-align: center;

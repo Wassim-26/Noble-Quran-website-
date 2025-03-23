@@ -50,6 +50,8 @@ export default function TemporaryDrawer() {
             sx={{
               marginBottom: "20px",
               color: darkMode ? "#ffffff" : "#000000",
+              fontFamily: "Cinzel",
+              fontWeight: "500",
             }}
           >
             <ListItemButton

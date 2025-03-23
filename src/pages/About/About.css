@@ -7,8 +7,20 @@
   display: flex;
   flex-direction: column;
 }
-.about-container .me {
-  background-color: rgba(0, 118, 209, 0.737);
+.about-container .me-light {
+  background-color: rgba(6, 100, 18, 0.737);
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.about-container .me-dark {
+  background-color: rgba(3, 0, 92, 0.719);
   border: 1px solid #000;
   border-radius: 10px;
   padding: 18px 22px;
@@ -65,7 +77,6 @@
   font-family: "Amiri", serif;
   font-weight: 700;
   font-style: italic;
-  color: #40e2a4;
 }
 .paragraph p {
   font-family: "Amiri", serif;
