@@ -23,7 +23,8 @@ export default function Sourates() {
       .then((data) => {
         setsurah(data.data);
         setLoadingsurah(false);
-      });
+      }),
+      [params.numberSourat];
 
     fetch("https://api.alquran.cloud/v1/edition")
       .then((response) => response.json())

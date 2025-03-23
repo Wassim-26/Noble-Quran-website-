@@ -13,6 +13,7 @@ export default function Navbar() {
           src="https://holy-quran-website.netlify.app/static/media/quran.2b985d1ab2b68d0a547d.png"
           width={48}
           height={48}
+          alt="quran"
         />
         <h2>Noble Quran</h2>
       </div>
