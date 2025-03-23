@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <Sourates />,
   },
   {
-    path: "/Reciters",
+    path: "/reciters",
     element: <Reciter />,
   },
   {
