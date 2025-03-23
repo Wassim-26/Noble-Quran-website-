@@ -35,9 +35,9 @@ export default function Reciter() {
       <Navbar />
       <div className="reciter-container">
         <div className="reciter-header-title">
-          <img src={icon} alt="" />
+          <img src={icon} alt="icon" />
           <h1> Quran Reciters</h1>
-          <img src={icon} alt="" />
+          <img src={icon} alt="icon" />
         </div>
         <div className="reciter-cards-container">
           {reciters.map((reciter) => (

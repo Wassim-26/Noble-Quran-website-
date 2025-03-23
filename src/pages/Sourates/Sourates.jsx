@@ -43,9 +43,9 @@ export default function Sourates() {
     <div className={`sourates ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />
       <div className="star-text-container">
-        <img src={star} width={52} height={52} />
+        <img alt="star" src={star} width={52} height={52} />
         <h1> {surah.name} </h1>
-        <img src={star} width={52} height={52} />
+        <img alt="star" src={star} width={52} height={52} />
       </div>
       <div className="select-ayat-container">
         <div className="select-container">
