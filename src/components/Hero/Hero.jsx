@@ -9,13 +9,13 @@ import { useStore } from "../../lib/store";
 
 export default function Hero() {
   const [surah, setSurah] = useState([]);
-  const [search, setSearch] = useState(""); // État pour la recherche
+  const [search, setSearch] = useState("");
   const darkMode = useStore((state) => state.darkMode);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://api.alquran.cloud/v1/surah")
+    fetch("https://api.alquran.cloud/v1/surah")
       .then((response) => response.json())
       .then((data) => {
         setSurah(data.data);
@@ -34,7 +34,6 @@ export default function Hero() {
       </div>
     );
 
-  // Vérifier si `surah` est bien un tableau avant de filtrer
   const filteredSurahs = Array.isArray(surah)
     ? surah.filter((s) =>
         s.englishName.toLowerCase().includes(search.toLowerCase())
@@ -55,19 +54,18 @@ export default function Hero() {
         <img src={quranLight} alt="quran" width={320} height={320} />
       )}
 
-      {/* Champ de recherche */}
       <input
         type="search"
         placeholder="What do you want read ..."
         value={search}
-        onChange={(e) => setSearch(e.target.value)} // Mise à jour de l'état
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       <div className="surah-container">
         {filteredSurahs.length > 0 ? (
           filteredSurahs.map((surates) => (
             <div
-              key={surates.number} // Ajout d'une clé unique
+              key={surates.number}
               className="surah"
               onClick={() => navigate(`/Sourate/${surates.number}`)}
             >
