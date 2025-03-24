@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./reciter.css";
+import "./Reciter.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../lib/store";
@@ -45,25 +45,25 @@ export default function Reciter() {
     );
 
   return (
-    <div
-      className={`reciter-container ${darkMode ? "dark-mode" : "light-mode"}`}
-    >
+    <div className={`head ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />
-      <div className="reciter-header-title">
-        <img src={icon} alt="icon" />
-        <h1>Quran Reciters</h1>
-        <img src={icon} alt="icon" />
-      </div>
-      <div className="reciter-cards-container">
-        {reciters.map((reciter) => (
-          <div
-            key={reciter.identifier}
-            className="reciter-card"
-            onClick={() => navigate(`/Reciters/${reciter.identifier}`)}
-          >
-            <h2>{reciter.englishName}</h2>
-          </div>
-        ))}
+      <div className="reciter-container">
+        <div className="reciter-header-title">
+          <img src={icon} alt="icon" />
+          <h1>Quran Reciters</h1>
+          <img src={icon} alt="icon" />
+        </div>
+        <div className="reciter-cards-container">
+          {reciters.map((reciter) => (
+            <div
+              key={reciter.identifier}
+              className="reciter-card"
+              onClick={() => navigate(`/Reciters/${reciter.identifier}`)}
+            >
+              <h2>{reciter.englishName}</h2>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

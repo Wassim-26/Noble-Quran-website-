@@ -1,8 +1,11 @@
-.reciter-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.head {
   height: 100vh;
+}
+.reciter-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .reciter-container > .reciter-header-title {
   display: flex;

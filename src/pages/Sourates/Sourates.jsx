@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Sourates.css";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import star from "../../img/islam-star.png";
 import loader from "../../img/loader2.gif";
 import { useStore } from "../../lib/store";
@@ -16,52 +16,35 @@ export default function Sourates() {
   const darkMode = useStore((state) => state.darkMode);
 
   useEffect(() => {
-    if (!params.numberSourat) return;
-
-    const fetchSurah = async () => {
-      try {
-        const response = await fetch(
-          `https://api.alquran.cloud/v1/surah/${params.numberSourat}/${CurrentEdition}`
-        );
-        const data = await response.json();
+    fetch(
+      `https://api.alquran.cloud/v1/surah/${params.numberSourat}/${CurrentEdition}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
         setsurah(data.data);
         setLoadingsurah(false);
-      } catch (error) {
-        console.error("Erreur lors du chargement de la sourate :", error);
-      }
-    };
+      });
 
-    fetchSurah();
-  }, [params.numberSourat, CurrentEdition]);
-
-  useEffect(() => {
-    const fetchEditions = async () => {
-      try {
-        const response = await fetch("https://api.alquran.cloud/v1/edition");
-        const data = await response.json();
+    fetch("https://api.alquran.cloud/v1/edition")
+      .then((response) => response.json())
+      .then((data) => {
         setEdition(data.data);
         setLoadingEdition(false);
-      } catch (error) {
-        console.error("Erreur lors du chargement des éditions :", error);
-      }
-    };
-
-    fetchEditions();
-  }, []);
+      });
+  }, [CurrentEdition]);
 
   if (LoadingSurah || LoadingEdition)
     return (
-      <div className={`loader ${darkMode ? "dark-mode" : "light-mode"}`}>
+      <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
         <img src={loader} alt="loader" width={186} height={186} />
       </div>
     );
-
   return (
     <div className={`sourates ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Navbar />
       <div className="star-text-container">
-        <img alt="star" src={star} width={52} height={52} />
-        <h1>{surah?.name}</h1>
+        <img src={star} width={52} height={52} />
+        <h1> {surah.name} </h1>
         <img alt="star" src={star} width={52} height={52} />
       </div>
       <div className="select-ayat-container">
@@ -70,7 +53,9 @@ export default function Sourates() {
           <select
             className={`${darkMode ? "dark-mode" : "light-mode"}`}
             dir="ltr"
-            onChange={(event) => setCurrentEdition(event.target.value)}
+            onChange={(event) => {
+              setCurrentEdition(event.target.value);
+            }}
           >
             {Edition.map((edition) => (
               <option key={edition.identifier} value={edition.identifier}>
@@ -82,15 +67,15 @@ export default function Sourates() {
         <section id="container-of-ayats">
           <div className="ayat-box-container">
             {surah?.ayahs?.map((aya) => (
-              <div className="aya" key={aya.number}>
+              <div className="aya">
                 <img
                   className="ayat-png"
                   src={`https://cdn.islamic.network/quran/images/high-resolution/${surah.number}_${aya.numberInSurah}.png`}
-                  alt={`Ayat ${aya.numberInSurah}`}
+                  alt="ayat"
                 />
                 <audio controls>
                   <source
-                    src={`https://cdn.islamic.network/quran/audio/128/${CurrentEdition}/${aya.number}.mp3`}
+                    src={`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${aya.number}.mp3`}
                     type="audio/mpeg"
                   />
                 </audio>
