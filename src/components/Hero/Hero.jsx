@@ -65,7 +65,7 @@ export default function Hero() {
         {filteredSurahs.length > 0 ? (
           filteredSurahs.map((surates) => (
             <div
-              key={surates.number}
+              kec y={surates.number}
               className="surah"
               onClick={() => navigate(`/Sourate/${surates.number}`)}
             >
