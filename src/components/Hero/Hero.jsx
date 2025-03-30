@@ -65,19 +65,38 @@ export default function Hero() {
         {filteredSurahs.length > 0 ? (
           filteredSurahs.map((surates) => (
             <div
-              kec y={surates.number}
+              kec
+              y={surates.number}
               className="surah"
               onClick={() => navigate(`/Sourate/${surates.number}`)}
             >
               <div className="left">
                 <div className="number-of-surah">
-                  <h1>{surates.number}</h1>
+                  <h1
+                    style={{
+                      color: darkMode ? "#ffffff" : "#000000",
+                    }}
+                  >
+                    {surates.number}
+                  </h1>
                   <img src={icon} width={62} height={62} alt="icon" />
                 </div>
-                <h2>{surates.englishName}</h2>
+                <h2
+                  style={{
+                    color: darkMode ? "#ffffff" : "#000000",
+                  }}
+                >
+                  {surates.englishName}
+                </h2>
               </div>
               <div className="right">
-                <p>{surates.numberOfAyahs}</p>
+                <p
+                  style={{
+                    color: darkMode ? "#ffffff" : "#000000",
+                  }}
+                >
+                  {surates.numberOfAyahs}
+                </p>
               </div>
             </div>
           ))
