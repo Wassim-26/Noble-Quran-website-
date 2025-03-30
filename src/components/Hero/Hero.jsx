@@ -101,7 +101,13 @@ export default function Hero() {
             </div>
           ))
         ) : (
-          <p style={{ textAlign: "center", fontSize: "24px" }}>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "24px",
+              color: darkMode ? "#ffffff" : "#000000",
+            }}
+          >
             No results found .
           </p>
         )}
