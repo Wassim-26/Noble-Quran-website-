@@ -16,21 +16,29 @@ export default function Sourates() {
   const darkMode = useStore((state) => state.darkMode);
 
   useEffect(() => {
-    fetch(
-      `https://api.alquran.cloud/v1/surah/${params.numberSourat}/${CurrentEdition}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setsurah(data.data);
+    const fetchData = async () => {
+      try {
+        const surahResponse = await fetch(
+          `https://api.alquran.cloud/v1/surah/${params.numberSourat}/${CurrentEdition}`
+        );
+        const surahData = await surahResponse.json();
+        setsurah(surahData.data);
         setLoadingsurah(false);
-      });
 
-    fetch("https://api.alquran.cloud/v1/edition")
-      .then((response) => response.json())
-      .then((data) => {
-        setEdition(data.data);
+        const editionResponse = await fetch(
+          "https://api.alquran.cloud/v1/edition"
+        );
+        const editionData = await editionResponse.json();
+        setEdition(editionData.data);
         setLoadingEdition(false);
-      });
+      } catch (error) {
+        console.error("Erreur lors du chargement :", error);
+        setLoadingsurah(false);
+        setLoadingEdition(false);
+      }
+    };
+
+    fetchData();
   }, [CurrentEdition]);
 
   if (LoadingSurah || LoadingEdition)

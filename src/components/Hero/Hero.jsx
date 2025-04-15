@@ -15,16 +15,19 @@ export default function Hero() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://api.alquran.cloud/v1/surah")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchSurah = async () => {
+      try {
+        const response = await fetch("https://api.alquran.cloud/v1/surah");
+        const data = await response.json();
         setSurah(data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Erreur de chargement des sourates :", error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchSurah();
   }, []);
 
   if (loading)

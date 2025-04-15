@@ -11,13 +11,23 @@ export default function Audio() {
   const params = useParams();
   const darkMode = useStore((state) => state.darkMode);
   useEffect(() => {
-    fetch("https://api.alquran.cloud/v1/quran/en.asad")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchQuran = async () => {
+      try {
+        const response = await fetch(
+          "https://api.alquran.cloud/v1/quran/en.asad"
+        );
+        const data = await response.json();
         setsurahs(data.data.surahs);
+      } catch (error) {
+        console.error("Erreur de chargement du Coran :", error);
+      } finally {
         setloading(false);
-      });
+      }
+    };
+
+    fetchQuran();
   }, []);
+
   if (loading)
     return (
       <div className={`loader  ${darkMode ? "dark-mode" : "light-mode"}`}>
