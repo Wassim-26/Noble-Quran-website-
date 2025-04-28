@@ -38,22 +38,27 @@ export default function About() {
             </h1>
             <div className="img-container">
               <p>
-                <img
-                  src={whatsApp}
-                  alt="whatsApp"
-                  width={72}
-                  height={72}
-                  style={{ borderRadius: "6px", border: "3px solid red" }}
-                />
+                {" "}
+                <a href="https://wa.me/213556085568">
+                  <img
+                    src={whatsApp}
+                    alt="whatsApp"
+                    width={72}
+                    height={72}
+                    style={{ borderRadius: "6px", border: "3px solid red" }}
+                  />
+                </a>
               </p>
               <p>
-                <img
-                  src={insta}
-                  alt="insta"
-                  width={72}
-                  height={72}
-                  style={{ borderRadius: "6px", border: "3px solid red" }}
-                />
+                <a href="https://www.instagram.com/wassim_hm.09/">
+                  <img
+                    src={insta}
+                    alt="insta"
+                    width={72}
+                    height={72}
+                    style={{ borderRadius: "6px", border: "3px solid red" }}
+                  />
+                </a>
               </p>
             </div>
           </div>
